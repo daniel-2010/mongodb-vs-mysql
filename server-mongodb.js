@@ -47,39 +47,39 @@ async function mongodb_insert_client(){
 console.log('-------- Iniciando Script ------------');
 
 async  function mongodb_consult(){
-    await cliente_model.aggregate([
-        {
-            $lookup:{
-                from: 'empresas',
-                localField:'empresas_cod_empresa',
-                foreignField:'_id',
-                as: 'empresa'
-            }
-        },{
-            $lookup:{
-                from: 'cidades',
-                localField:'empresa.cidades_cod_cidade',
-                foreignField:'_id',
-                as: 'cidade'
-            }
-        },{
-            $lookup:{
-                from: 'estados',
-                localField:'cidade.estados_cod_estado',
-                foreignField:'_id',
-                as: 'estado'
-            }
-        },{
-            $group:{
-                _id:"$_id",
-                nome_cliente: { $first: "$nome_cliente" },
-                empresa: {$first: '$empresa.nome_empresa'},
-                cidade: {$first: '$cidade.nome_cidade'},
-                estado:{$first:'$estado.uf_estado'}
-            }
-        }
-    ]);
-    // cliente_model.find();
+    // await cliente_model.aggregate([
+    //     {
+    //         $lookup:{
+    //             from: 'empresas',
+    //             localField:'empresas_cod_empresa',
+    //             foreignField:'_id',
+    //             as: 'empresa'
+    //         }
+    //     },{
+    //         $lookup:{
+    //             from: 'cidades',
+    //             localField:'empresa.cidades_cod_cidade',
+    //             foreignField:'_id',
+    //             as: 'cidade'
+    //         }
+    //     },{
+    //         $lookup:{
+    //             from: 'estados',
+    //             localField:'cidade.estados_cod_estado',
+    //             foreignField:'_id',
+    //             as: 'estado'
+    //         }
+    //     },{
+    //         $group:{
+    //             _id:"$_id",
+    //             nome_cliente: { $first: "$nome_cliente" },
+    //             empresa: {$first: '$empresa.nome_empresa'},
+    //             cidade: {$first: '$cidade.nome_cidade'},
+    //             estado:{$first:'$estado.uf_estado'}
+    //         }
+    //     }
+    // ]);
+    cliente_model.find();
     // return data;
 }
 
