@@ -1,4 +1,4 @@
-# mongodb-vs-mysql2
+# Desempenho MongoDB vs MySQL
 Teste de comparação do desempenho entre os bancos de dados MongoDB e MySQL
 
 Exemplo de teste:
