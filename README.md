@@ -6,11 +6,11 @@ Para instalar as dependências, execute o comando a seguir:
 
 <b>$ npm install</b>
 
-Para contabilizar o desempenho do <b>MongoDB</b> execute o código a seguir:
+Para contabilizar o desempenho do <b>MongoDB</b> execute este código:
 
 <b>$ npm run mongodb</b>
 
-Para contabilizar o desempenho do <b>MySQL</b> execute o código a seguir:
+Para contabilizar o desempenho do <b>MySQL</b> execute este código:
 
 <b>$ npm run mysql</b>
 
