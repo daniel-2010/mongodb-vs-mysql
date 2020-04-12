@@ -10,16 +10,21 @@ mongoose.connect('mongodb://localhost:27017/mongodb-vs-mysql',{
     if(err){ console.log(err) }
 });
 
-console.log('-------- Iniciando Script ------------');
+// console.log('-------- Iniciando Script ------------');
 
 async  function mongodb_consult(){
-    cliente_model.find().populate();
+    cliente_model.find({});
 }
 
 var tempoInicio = Date.now();
 
 PromiseAll.all([mongodb_consult()]).then(function (){
     var tempoFim = Date.now();
-    console.log(((tempoFim-tempoInicio)/1000)+' segundos ');
-    console.log('-------- Script Finalizado -----------');
+    var result = {
+        Comando:'FIND',
+        Banco:'MongoDB',
+        Resultado: ((tempoFim-tempoInicio)/1000)+' s',
+    }
+    console.table(result);
+    // console.log('-------- Script Finalizado -----------');
 })
